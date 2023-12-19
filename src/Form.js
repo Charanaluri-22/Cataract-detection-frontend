@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Box, Button, TextField, Typography, Grid, Container } from '@mui/material';
+import { APP_URL } from './config';
 
 const Form = () => {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -26,7 +27,7 @@ const Form = () => {
         formData.append('file', selectedFile);
 
         try {
-            const response = await axios.post('http://localhost:4000/predict', formData, {
+            const response = await axios.post(`${APP_URL}/predict`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -38,6 +39,7 @@ const Form = () => {
     };
 
     return (
+        <>
         <Container component="main" maxWidth="sm" className="box">
             <Typography variant="h4" align="center">Cataract Detection</Typography>
             <Box 
@@ -89,6 +91,8 @@ const Form = () => {
         )}~
             </Box>
         </Container>
+        <button onClick={()=>{console.log(URL)}}>print</button>
+        </>
     );
 };
 
