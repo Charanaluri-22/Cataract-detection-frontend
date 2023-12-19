@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Box, Button, TextField, Typography, Grid, Container } from '@mui/material';
-import { APP_URL } from './config';
+import { APP_URL } from './secrets/config';
 
 const Form = () => {
     const [selectedFile, setSelectedFile] = useState(null);
