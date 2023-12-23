@@ -1,11 +1,12 @@
-import './App.css';
-import Form from './Form';
+import "./App.css";
+import Form from "./Form";
+import Model from "./Model";
 function App() {
   return (
-    <Form>
-      
-    </Form>
-    
+    <>
+      <Model></Model>
+      <Form></Form>
+    </>
   );
 }
 
