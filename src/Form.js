@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Box, Button, TextField, Typography, Grid, Container } from '@mui/material';
-import { APP_URL } from './secrets/config';
 
 const Form = () => {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -27,7 +26,7 @@ const Form = () => {
         formData.append('file', selectedFile);
 
         try {
-            const response = await axios.post(`${APP_URL}/predict`, formData, {
+            const response = await axios.post('https://charanaluri-cataractdetection-app.hf.space/predict', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -91,7 +90,6 @@ const Form = () => {
         )}~
             </Box>
         </Container>
-        <button onClick={()=>{console.log(URL)}}>print</button>
         </>
     );
 };
